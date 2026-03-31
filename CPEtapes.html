@@ -1,0 +1,246 @@
+<!-- FILE: CPEtapes.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drop It Forward • Steps</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #a8e6cf 0%, #d4f1f9 100%);
+            color: #05445E;
+        }
+
+        nav {
+            position: fixed;
+            top: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.8rem;
+            background: rgba(5, 68, 94, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 0.8rem 1.5rem;
+            border-radius: 60px;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.7rem 1.8rem;
+            border-radius: 50px;
+            transition: all 0.3s;
+        }
+
+        nav a:hover {
+            background: #75e6da;
+            color: #05445E;
+        }
+
+        header {
+            background: linear-gradient(145deg, #05445E 0%, #0a5c7a 100%);
+            padding: 8rem 2rem 5rem;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            margin-bottom: 3rem;
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            color: white;
+            text-shadow: 4px 4px 0 #75e6da;
+            margin-bottom: 1.5rem;
+        }
+
+        header p {
+            font-size: 1.3rem;
+            color: white;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 1.5rem;
+            background: rgba(0,0,0,0.2);
+            backdrop-filter: blur(5px);
+            border-radius: 60px;
+            border: 2px solid #75e6da;
+        }
+
+        .timeline {
+            max-width: 900px;
+            margin: 4rem auto;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 90%;
+            background: linear-gradient(to bottom, #75e6da, #05445E);
+            border-radius: 4px;
+        }
+
+        .step {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 3rem 0;
+            position: relative;
+        }
+
+        .step:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .step-content {
+            width: 45%;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 40px 40px 40px 0;
+            border: 3px solid #05445E;
+            box-shadow: 10px 10px 0 #75e6da;
+            transition: all 0.3s;
+        }
+
+        .step-content:hover {
+            transform: scale(1.02);
+            box-shadow: 15px 15px 0 #05445E;
+        }
+
+        .step-number {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #05445E;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.5rem;
+            border: 3px solid #75e6da;
+        }
+
+        .step h3 {
+            font-size: 2rem;
+            color: #05445E;
+            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .step p {
+            color: #05445E;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 700px) {
+            .timeline::before {
+                left: 30px;
+            }
+            .step, .step:nth-child(even) {
+                flex-direction: column;
+                align-items: flex-start;
+                margin-left: 60px;
+            }
+            .step-content {
+                width: 100%;
+            }
+            .step-number {
+                left: 30px;
+            }
+        }
+
+        footer {
+            background: #05445E;
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+            border-top: 6px solid #75e6da;
+            position: relative;
+        }
+
+        footer::before {
+            content: '💧💧💧';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #05445E;
+            padding: 0.5rem 2rem;
+            border-radius: 60px;
+            color: #75e6da;
+            font-size: 1.5rem;
+            border: 2px solid #75e6da;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="CPhome.html">Home</a>
+        <a href="CPprobleme.html">Problem</a>
+        <a href="CPSolution.html">Solution</a>
+        <a href="CPEtapes.html">Steps</a>
+        <a href="CPdid.html">What We Did</a>
+                <a href="CPgallerie.html">Gallery</a>
+    </nav>
+
+    <header>
+        <h1>Project Steps</h1>
+        <p>Discover how we developed our Drop It Forward project, from investigation to final reflection.</p>
+    </header>
+
+    <div class="timeline">
+        <div class="step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+                <h3>Phase 1 – Investigation</h3>
+                <p>We started by identifying the problem of expensive water access in our community. We did research, conducted surveys, and analyzed residents' needs to better understand the situation.</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+                <h3>Phase 2 – Planning</h3>
+                <p>We then designed the rainwater collection system by preparing a plan, budget, materials list, and design sketches. We also received advice from our mentor to improve the project.</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+                <h3>Phase 3 – Action</h3>
+                <p>We built and installed the rainwater harvesting system using available materials, then explained its operation to the community and collected their feedback.</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+                <h3>Phase 4 – Reflection</h3>
+                <p>Finally, we evaluated our work by analyzing strengths and difficulties encountered. We also thought about how to improve the project for the future.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Drop It Forward | SkySource</p>
+    </footer>
+</body>
+</html>

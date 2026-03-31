@@ -1,0 +1,226 @@
+<!-- FILE: CPdid.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drop It Forward • What We Did</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #a8e6cf 0%, #d4f1f9 100%);
+            color: #05445E;
+        }
+
+        nav {
+            position: fixed;
+            top: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.8rem;
+            background: rgba(5, 68, 94, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 0.8rem 1.5rem;
+            border-radius: 60px;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.7rem 1.8rem;
+            border-radius: 50px;
+            transition: all 0.3s;
+        }
+
+        nav a:hover {
+            background: #75e6da;
+            color: #05445E;
+        }
+
+        header {
+            background: linear-gradient(145deg, #05445E 0%, #0a5c7a 100%);
+            padding: 8rem 2rem 5rem;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            margin-bottom: 3rem;
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            color: white;
+            text-shadow: 4px 4px 0 #75e6da;
+            margin-bottom: 1.5rem;
+        }
+
+        header p {
+            font-size: 1.3rem;
+            color: white;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 1.5rem;
+            background: rgba(0,0,0,0.2);
+            backdrop-filter: blur(5px);
+            border-radius: 60px;
+            border: 2px solid #75e6da;
+        }
+
+        .actions-grid {
+            max-width: 1000px;
+            margin: 4rem auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .action-card {
+            background: white;
+            border-radius: 40px 40px 40px 0;
+            border: 3px solid #05445E;
+            box-shadow: 15px 15px 0 #75e6da;
+            padding: 2.5rem;
+            transition: all 0.3s;
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .action-card:hover {
+            transform: translate(-5px, -5px);
+            box-shadow: 20px 20px 0 #05445E;
+        }
+
+        .action-icon {
+            font-size: 3rem;
+            background: #05445E;
+            color: white;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid #75e6da;
+            flex-shrink: 0;
+        }
+
+        .action-content h3 {
+            font-size: 1.8rem;
+            color: #05445E;
+            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .action-content p {
+            color: #05445E;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 800px) {
+            .actions-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .water-quote {
+            text-align: center;
+            font-size: 2rem;
+            color: #05445E;
+            margin: 3rem 0;
+            font-style: italic;
+            opacity: 0.8;
+        }
+
+        footer {
+            background: #05445E;
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+            border-top: 6px solid #75e6da;
+            position: relative;
+        }
+
+        footer::before {
+            content: '💧💧💧';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #05445E;
+            padding: 0.5rem 2rem;
+            border-radius: 60px;
+            color: #75e6da;
+            font-size: 1.5rem;
+            border: 2px solid #75e6da;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="CPhome.html">Home</a>
+        <a href="CPprobleme.html">Problem</a>
+        <a href="CPSolution.html">Solution</a>
+        <a href="CPEtapes.html">Steps</a>
+        <a href="CPdid.html">What We Did</a>
+                <a href="CPgallerie.html">Gallery</a>
+    </nav>
+
+    <header>
+        <h1>What We Did</h1>
+        <p>A summary of our actions and results for the Drop It Forward project.</p>
+    </header>
+
+    <div class="actions-grid">
+        <div class="action-card">
+            <div class="action-icon">🔍</div>
+            <div class="action-content">
+                <h3>Research and Survey</h3>
+                <p>We analyzed the water access problem, conducted community surveys, and identified the main needs.</p>
+            </div>
+        </div>
+        <div class="action-card">
+            <div class="action-icon">📝</div>
+            <div class="action-content">
+                <h3>Planning</h3>
+                <p>We designed the system, established a budget, and selected the necessary materials to build our rainwater collection system.</p>
+            </div>
+        </div>
+        <div class="action-card">
+            <div class="action-icon">🏗️</div>
+            <div class="action-content">
+                <h3>Construction and Installation</h3>
+                <p>We set up the functional system and explained to the community how to use it for their daily needs.</p>
+            </div>
+        </div>
+        <div class="action-card">
+            <div class="action-icon">🌱</div>
+            <div class="action-content">
+                <h3>Impact and Reflection</h3>
+                <p>We evaluated the system's effectiveness, considered possible improvements, and measured the positive impact on the community and sustainability.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="water-quote">
+        ~~~ 💧 every drop counts 💧 ~~~
+    </div>
+
+    <footer>
+        <p>© 2026 Drop It Forward | SkySource</p>
+    </footer>
+</body>
+</html>

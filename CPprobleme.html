@@ -1,0 +1,215 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drop It Forward • Problem</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #a8e6cf 0%, #d4f1f9 100%);
+            color: #05445E;
+            min-height: 100vh;
+        }
+
+        .water-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.15;
+            background: repeating-linear-gradient(45deg, #05445E 0px, #05445E 2px, transparent 2px, transparent 10px);
+        }
+
+        nav {
+            position: fixed;
+            top: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.8rem;
+            background: rgba(5, 68, 94, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 0.8rem 1.5rem;
+            border-radius: 60px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            z-index: 1000;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.7rem 1.8rem;
+            border-radius: 50px;
+            transition: all 0.3s;
+        }
+
+        nav a:hover {
+            background: #75e6da;
+            color: #05445E;
+        }
+
+        header {
+            background: linear-gradient(145deg, #05445E 0%, #0a5c7a 100%);
+            padding: 8rem 2rem 5rem;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            margin-bottom: 3rem;
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            color: white;
+            text-shadow: 4px 4px 0 #75e6da;
+            margin-bottom: 1.5rem;
+        }
+
+        header p {
+            font-size: 1.3rem;
+            color: white;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 1.5rem;
+            background: rgba(0,0,0,0.2);
+            backdrop-filter: blur(5px);
+            border-radius: 60px;
+            border: 2px solid #75e6da;
+        }
+
+        .problems-container {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .card {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 50px 50px 50px 0;
+            border: 3px solid #05445E;
+            box-shadow: 15px 15px 0 #75e6da;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '💧';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 4rem;
+            opacity: 0.1;
+            transform: rotate(15deg);
+        }
+
+        .card:hover {
+            transform: translate(-5px, -5px);
+            box-shadow: 20px 20px 0 #05445E;
+        }
+
+        .card h3 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: #05445E;
+            font-family: 'Playfair Display', serif;
+            border-bottom: 3px solid #75e6da;
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .card p {
+            font-size: 1.1rem;
+            color: #05445E;
+            line-height: 1.6;
+        }
+
+        .wave-decoration {
+            text-align: center;
+            font-size: 2rem;
+            color: #75e6da;
+            letter-spacing: 10px;
+            margin: 2rem 0;
+        }
+
+        footer {
+            background: #05445E;
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+            border-top: 6px solid #75e6da;
+            position: relative;
+        }
+
+        footer::before {
+            content: '💧💧💧';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #05445E;
+            padding: 0.5rem 2rem;
+            border-radius: 60px;
+            color: #75e6da;
+            font-size: 1.5rem;
+            border: 2px solid #75e6da;
+        }
+    </style>
+</head>
+<body>
+    <div class="water-bg"></div>
+
+    <nav>
+        <a href="CPhome.html">Home</a>
+        <a href="CPprobleme.html">Problem</a>
+        <a href="CPSolution.html">Solution</a>
+        <a href="CPEtapes.html">Steps</a>
+        <a href="CPdid.html">What We Did</a>
+                <a href="CPgallerie.html">Gallery</a>
+    </nav>
+
+    <header>
+        <h1>The Problem</h1>
+        <p>Many families in our community have limited access to water or have to pay significant amounts to get it. This makes daily tasks more difficult.</p>
+    </header>
+
+    <div class="wave-decoration">~~o~~o~~o~~</div>
+
+    <div class="problems-container">
+        <div class="card">
+            <h3>High Cost</h3>
+            <p>For some families, buying drinking water represents a significant expense each month, limiting other essential needs.</p>
+        </div>
+        <div class="card">
+            <h3>Limited Access</h3>
+            <p>In some areas, water is not always available, forcing residents to travel or ration their usage.</p>
+        </div>
+        <div class="card">
+            <h3>Health Issues</h3>
+            <p>Insufficient or poor quality water leads to health risks and affects daily hygiene.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Drop It Forward | SkySource</p>
+    </footer>
+</body>
+</html>

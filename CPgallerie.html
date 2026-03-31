@@ -1,0 +1,478 @@
+<!-- FILE: CPgallerie.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drop It Forward • Gallery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #a8e6cf 0%, #d4f1f9 100%);
+            color: #05445E;
+            min-height: 100vh;
+        }
+
+        .water-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.1;
+            background: radial-gradient(circle at 30% 70%, #75e6da 0%, transparent 50%),
+                        repeating-linear-gradient(45deg, #05445E 0px, #05445E 2px, transparent 2px, transparent 15px);
+        }
+
+        nav {
+            position: fixed;
+            top: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.8rem;
+            background: rgba(5, 68, 94, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 0.8rem 1.5rem;
+            border-radius: 60px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            z-index: 1000;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.7rem 1.8rem;
+            border-radius: 50px;
+            transition: all 0.3s;
+        }
+
+        nav a:hover {
+            background: #75e6da;
+            color: #05445E;
+            transform: translateY(-2px);
+        }
+
+        header {
+            background: linear-gradient(145deg, #05445E 0%, #0a5c7a 100%);
+            padding: 8rem 2rem 5rem;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            margin-bottom: 3rem;
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            color: white;
+            text-shadow: 4px 4px 0 #75e6da;
+            margin-bottom: 1.5rem;
+        }
+
+        header p {
+            font-size: 1.3rem;
+            color: white;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 1.5rem;
+            background: rgba(0,0,0,0.2);
+            backdrop-filter: blur(5px);
+            border-radius: 60px;
+            border: 2px solid #75e6da;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            max-width: 1400px;
+            margin: 4rem auto;
+            padding: 2rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #05445E;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '~~~';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #75e6da;
+            font-size: 1.5rem;
+            letter-spacing: 5px;
+        }
+
+        /* Image Grid */
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .gallery-card {
+            background: white;
+            border-radius: 30px 30px 30px 0;
+            overflow: hidden;
+            box-shadow: 15px 15px 0 #75e6da;
+            border: 3px solid #05445E;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+        }
+
+        .gallery-card:hover {
+            transform: translate(-8px, -8px);
+            box-shadow: 25px 25px 0 #05445E;
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .card-caption {
+            padding: 1.5rem;
+            background: white;
+        }
+
+        .card-caption h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #05445E;
+        }
+
+        .card-caption p {
+            color: #2d6a6b;
+            font-size: 0.9rem;
+        }
+
+        /* Special card for PanneauTank */
+        .special-card {
+            position: relative;
+            background: linear-gradient(135deg, #05445E, #0a5c7a);
+        }
+
+        .special-card .card-caption h3,
+        .special-card .card-caption p {
+            color: white;
+        }
+
+        /* Video Section */
+        .video-section {
+            margin: 4rem 0;
+        }
+
+        .video-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 40px 40px 40px 0;
+            overflow: hidden;
+            box-shadow: 20px 20px 0 #75e6da;
+            border: 3px solid #05445E;
+            transition: all 0.3s;
+        }
+
+        .video-container:hover {
+            transform: translate(-5px, -5px);
+            box-shadow: 25px 25px 0 #05445E;
+        }
+
+        video {
+            width: 100%;
+            display: block;
+        }
+
+        .video-caption {
+            padding: 1.5rem;
+            text-align: center;
+            background: white;
+        }
+
+        .video-caption h3 {
+            font-size: 1.5rem;
+            color: #05445E;
+            margin-bottom: 0.5rem;
+        }
+
+        .video-caption p {
+            color: #2d6a6b;
+        }
+
+        /* Lightbox Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 68, 94, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            animation: zoomIn 0.3s ease;
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            border: 4px solid #75e6da;
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 30px;
+            right: 50px;
+            font-size: 3rem;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .close-modal:hover {
+            transform: scale(1.1);
+            color: #75e6da;
+        }
+
+        /* Water Drops Animation */
+        .water-drop {
+            position: fixed;
+            font-size: 1.5rem;
+            pointer-events: none;
+            opacity: 0.3;
+            animation: fall linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-20vh) rotate(0deg);
+                opacity: 0;
+            }
+            20% {
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(120vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        footer {
+            background: #05445E;
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+            border-top: 6px solid #75e6da;
+            position: relative;
+        }
+
+        footer::before {
+            content: '💧💧💧';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #05445E;
+            padding: 0.5rem 2rem;
+            border-radius: 60px;
+            color: #75e6da;
+            font-size: 1.5rem;
+            border: 2px solid #75e6da;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-wrap: wrap;
+                width: 90%;
+                justify-content: center;
+            }
+            nav a {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+            .image-grid {
+                grid-template-columns: 1fr;
+            }
+            .close-modal {
+                top: 20px;
+                right: 20px;
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="water-bg"></div>
+
+    <nav>
+        <a href="CPhome.html">Home</a>
+        <a href="CPprobleme.html">Problem</a>
+        <a href="CPSolution.html">Solution</a>
+        <a href="CPEtapes.html">Steps</a>
+        <a href="CPdid.html">What We Did</a>
+        <a href="CPgallerie.html">Gallery</a>
+    </nav>
+
+    <header>
+        <h1>📸 Project Gallery</h1>
+        <p>Discover our rainwater harvesting system in action — from installation to community impact.</p>
+    </header>
+
+    <div class="gallery-section">
+        <h2 class="section-title">Our Installation</h2>
+        <div class="image-grid">
+            <!-- tankpic1.jpg -->
+            <div class="gallery-card" onclick="openModal(this)">
+                <img src="tankpic1.jpg" alt="Water tank installation - view 1">
+                <div class="card-caption">
+                    <h3>💧 Water Tank - View 1</h3>
+                    <p>The main storage tank installed at the collection point</p>
+                </div>
+            </div>
+
+            <!-- tankpic2.jpg -->
+            <div class="gallery-card" onclick="openModal(this)">
+                <img src="tankpic2.jpg" alt="Water tank installation - view 2">
+                <div class="card-caption">
+                    <h3>💧 Water Tank - View 2</h3>
+                    <p>Close-up of the tank with filtration system</p>
+                </div>
+            </div>
+
+            <!-- tankpic3.jpg -->
+            <div class="gallery-card" onclick="openModal(this)">
+                <img src="tankpic3.jpg" alt="Water tank installation - view 3">
+                <div class="card-caption">
+                    <h3>💧 Water Tank - View 3</h3>
+                    <p>The complete setup ready for community use</p>
+                </div>
+            </div>
+
+            <!-- PanneauTank.jpg (special) -->
+            <div class="gallery-card special-card" onclick="openModal(this)">
+                <img src="PanneauTank.jpg" alt="Informational panel about the tank system">
+                <div class="card-caption">
+                    <h3>📋 Information Panel</h3>
+                    <p>Educational panel explaining the rainwater harvesting system</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Video Section -->
+        <div class="video-section">
+            <h2 class="section-title">🎥 Watch Our Project in Action</h2>
+            <div class="video-container">
+                <video controls poster="tankpic1.jpg">
+                    <source src="TankVid.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="video-caption">
+                    <h3>💧 Drop It Forward - System Demonstration</h3>
+                    <p>See how our rainwater collection system works and hear from the community</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="modal" class="modal" onclick="closeModal()">
+        <span class="close-modal" onclick="closeModal()">✕</span>
+        <div class="modal-content" id="modal-content"></div>
+    </div>
+
+    <footer>
+        <p>© 2026 Drop It Forward | SkySource — Every drop counts 💧</p>
+    </footer>
+
+    <script>
+        // Create water drops animation
+        for(let i = 0; i < 40; i++) {
+            let drop = document.createElement('div');
+            drop.classList.add('water-drop');
+            drop.innerHTML = ['💧','💦','🌊'][Math.floor(Math.random() * 3)];
+            drop.style.left = Math.random() * 100 + '%';
+            drop.style.animationDuration = (3 + Math.random() * 6) + 's';
+            drop.style.fontSize = (12 + Math.random() * 28) + 'px';
+            drop.style.animationDelay = Math.random() * 8 + 's';
+            document.body.appendChild(drop);
+        }
+
+        function openModal(card) {
+            const modal = document.getElementById('modal');
+            const modalContent = document.getElementById('modal-content');
+            const img = card.querySelector('img');
+            const caption = card.querySelector('.card-caption');
+            
+            modalContent.innerHTML = `
+                <img src="${img.src}" alt="${img.alt}">
+                <div style="text-align: center; margin-top: 1rem; color: white; background: rgba(5,68,94,0.8); padding: 1rem; border-radius: 20px;">
+                    <h3 style="color: #75e6da;">${caption.querySelector('h3').innerHTML}</h3>
+                    <p>${caption.querySelector('p').innerHTML}</p>
+                </div>
+            `;
+            modal.classList.add('active');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('modal');
+            modal.classList.remove('active');
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
